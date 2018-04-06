@@ -15,13 +15,12 @@ Usage: kws-assessment [options] <table-file>
 **<table-file>** must be a plain ASCII text file with the following
 information arranged in 4 columns:
 
->> '#' Line-ID<string>             Word<string>          If_Relevant<0|1>                   Score<float>
-
->>     l23-12             potato          1                   0.76
-
->>     l23-12             tomato          0                   0.34
-
->> ...
+```
+'#' Line-ID<string>  Word<string>  If_Relevant<0|1>  Score<float>
+     l23-12          potato        1                 0.76
+     l23-12          tomato        0                 0.34
+     ...             ...           ...               ...
+```
 
 ## Examples of use
 
