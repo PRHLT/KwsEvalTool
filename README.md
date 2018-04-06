@@ -26,12 +26,11 @@ information arranged in 4 columns:
 
 To compute **AP** and **mAP**:
 ```bash
-kws-assessment -t -s -a -m data_test.dat -w egs/keywords_test.lst \
-               -l 16376 egs/data_test.dat
+kws-assessment -t -s -a -m -w egs/keywords_test.lst -l 16376 egs/data_test.dat
 ```
 
 To generate the corresponding **R-P** curve:
 ```bash
-kws-assessment -t -s data_test.dat -w egs/keywords_test.lst \
-               -l 16376 egs/data_test.dat > egs/r-p_data.dat
+kws-assessment -t -s -w egs/keywords_test.lst -l 16376 \
+               egs/data_test.dat > egs/r-p_data.dat
 ```
