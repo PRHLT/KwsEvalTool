@@ -12,7 +12,7 @@ Usage: kws-assessment [options] <table-file>
 
 ## Input file format
 
-**'<'table-file'>'** must be a plain ASCII text file with the following
+__<table-file>__ must be a plain ASCII text file with the following
 information arranged in 4 columns:
 
 ```
