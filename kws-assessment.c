@@ -327,7 +327,7 @@ void meanAveragePrecision(record *rc, uint nR, uint nW, uint nL, char bIp, char 
     if (TR!=0) numRealWrds++; // Relevant word counter increments if TR!=0
     if (TR==0 || CNT==0) {
       //fprintf(stderr,"INFO: No relevant events have been found for word: %d\n",j);
-      if (vrb != 'n') fprintf(stderr,"INFO: wrdID: %d    AP: -1  TR: 0\n",j);
+      if (vrb != 'n') fprintf(stderr,"INFO: wrdID: %d    AP: 0  TR: %d\n",j,TR);
       continue;
     }
 
@@ -387,8 +387,8 @@ void recallPrecisionCurve(record *rc, uint n, uint offset, char bIp, char trp) {
   uint CNT=0, TR=0, i;
   double dPP = -1;
   for (i=0; i<n; i++) {
-    negThr = 1;
     if (rc[i].dPstProb<0) {
+      negThr = 1;
       if (rc[i].bGrTh=='1' || toupper(rc[i].bGrTh)=='T' || toupper(rc[i].bGrTh)=='Y') TR++;
       continue;
     }
