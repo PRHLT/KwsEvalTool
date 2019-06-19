@@ -234,6 +234,7 @@ void globalAveragePrecision(record *rc, uint n, uint offset, char bIp, char trp)
     if (minCER>auxCER) {minCER=auxCER; tauCER=TAU[i];}
     d+=D[i]; r+=R[i];
     P[i]=(double)r/d; Rc[i]=(double)r/TR;
+    //fprintf(stderr,"%2.6f %d : %d %d\n",P[i],d,R[i],TR);
     aux=(P[i]-Rc[i]); aux=(aux<0)?-1*aux:aux;
     if (min>aux) {min=aux; ind=i;}
     auxF=((P[i]+Rc[i])!=0)?2*(P[i]*Rc[i])/(P[i]+Rc[i]):0;
@@ -247,6 +248,7 @@ void globalAveragePrecision(record *rc, uint n, uint offset, char bIp, char trp)
     for (i=CNT; i>0; i--) {
       if (iP<P[i-1]) iP=P[i-1];
       IP[i-1]=iP;
+      //fprintf(stderr,"%2.6f : %d %d\n",IP[i-1],R[i-1],TR);
       aux=(IP[i-1]-Rc[i-1]); aux=(aux<0)?-1*aux:aux;
       if (min>aux) {min=aux; ind=i-1;}
       auxF=((IP[i-1]+Rc[i-1])!=0)?2*(IP[i-1]*Rc[i-1])/(IP[i-1]+Rc[i-1]):0;
@@ -259,7 +261,7 @@ void globalAveragePrecision(record *rc, uint n, uint offset, char bIp, char trp)
     } else for (i=1; i<CNT; i++) sum+=IP[i]*R[i];
   } else {
     if (trp=='y') for (i=1; i<CNT; i++) sum+=(P[i-1]+P[i])*R[i]/2;
-    else for (i=1; i<CNT; i++) sum+=P[i]*R[i];
+    else for (i=0; i<CNT; i++) sum+=P[i]*R[i];
   }
   fprintf(stdout,"          AP = %.9f\n\
           RP = %.9f ( min|Rec-Prc| = %f )\n\
@@ -350,7 +352,7 @@ void meanAveragePrecision(record *rc, uint nR, uint nW, uint nL, char bIp, char 
       else for (i=1; i<CNT; i++) sum+=IP[i]*R[i];
     } else {
       if (trp=='y') for (i=1; i<CNT; i++) sum+=(P[i-1]+P[i])*R[i]/2;
-      else for (i=1; i<CNT; i++) sum+=P[i]*R[i];
+      else for (i=0; i<CNT; i++) sum+=P[i]*R[i];
     }
     
     if (vrb != 'n') fprintf(stderr,"INFO: wrdID: %d    AP: %f  TR: %d\n",j,sum/TR,TR);
