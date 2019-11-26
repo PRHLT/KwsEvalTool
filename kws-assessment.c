@@ -355,7 +355,7 @@ void meanAveragePrecision(record *rc, uint nR, uint nW, uint nL, char bIp, char 
       else for (i=0; i<CNT; i++) sum+=P[i]*R[i];
     }
     
-    if (vrb != 'n') fprintf(stderr,"INFO: wrdID: %d    AP: %f  TR: %d\n",j,sum/TR,TR);
+    if (vrb != 'n') fprintf(stderr,"INFO: wrdID: %d    AP: %e  TR: %d\n",j,sum/TR,TR);
     s_ap += sum/TR; 
     //fprintf(stderr,"%f %d\n",sum,numRealWrds);
   }
