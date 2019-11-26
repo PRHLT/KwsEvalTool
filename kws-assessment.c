@@ -329,7 +329,7 @@ void meanAveragePrecision(record *rc, uint nR, uint nW, uint nL, char bIp, char 
     if (TR!=0) numRealWrds++; // Relevant word counter increments if TR!=0
     if (TR==0 || CNT==0) {
       //fprintf(stderr,"INFO: No relevant events have been found for word: %d\n",j);
-      if (vrb != 'n') fprintf(stderr,"INFO: wrdID: %d    AP: 0  TR: %d\n",j,TR);
+      if (vrb != 'n') fprintf(stderr,"INFO: wrdID: %d    AP: %f  TR: %d\n",j,0.0,TR);
       continue;
     }
 
@@ -355,7 +355,7 @@ void meanAveragePrecision(record *rc, uint nR, uint nW, uint nL, char bIp, char 
       else for (i=0; i<CNT; i++) sum+=P[i]*R[i];
     }
     
-    if (vrb != 'n') fprintf(stderr,"INFO: wrdID: %d    AP: %e  TR: %d\n",j,sum/TR,TR);
+    if (vrb != 'n') fprintf(stderr,"INFO: wrdID: %d    AP: %f  TR: %d\n",j,sum/TR,TR);
     s_ap += sum/TR; 
     //fprintf(stderr,"%f %d\n",sum,numRealWrds);
   }
