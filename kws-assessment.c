@@ -453,7 +453,7 @@ void recallPrecisionCurve(record *rc, uint n, uint offset, char bIp, char trp) {
     Ms=1-Rc; Fa=Rc*TR*(1-InP)/((n-TR)*InP); 
     //fprintf(stdout,"%.7f\t%.7f\t%.7f\t%.7f\t%d\t%d\t%d\t%u\n",Fa,Ms,Rc,InP,TR,n,H[i-1],d); exit(1);
     if (trp=='y')
-      fprintf(stdout,"%.7f\t%.7f\t%.7f\t%.7f\t%.7f\t%.7f\t%.7f\n",TAU[i-1],InP,Rc,F,CER[i-1],Fa,Ms);
+      fprintf(stdout,"%.7e\t%.7f\t%.7f\t%.7f\t%.7f\t%.7f\t%.7f\n",TAU[i-1],InP,Rc,F,CER[i-1],Fa,Ms);
     else {
       if (Rc!=pRc)
         fprintf(stdout,"%.7f\t%.7f\n%.7f\t%.7f\n",pInP,Rc,InP,Rc);
