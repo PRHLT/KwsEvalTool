@@ -110,6 +110,11 @@ record* readFile(FILE *dfile, uint *uNum, ht** htabWrds, ht** htabLns, char smth
     if ((np=strtok(line,delim)) && np[0]!='#') n++;
   rc = (record*)calloc(n, sizeof(record));
   
+  if (fseek(dfile, 0L, SEEK_SET)) {
+    fprintf(stderr,"This program does not accept stream inputs.\n");
+    return NULL;
+  }
+
   ht *elem, *auxHtabWrds = NULL;
   uint flagErr;
   rewind(dfile); n = 0;
