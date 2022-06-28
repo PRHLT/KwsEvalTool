@@ -610,7 +610,7 @@ void compute_AUROC(record *rc, uint n, uint offset, char trp) {
   }
   //double dFcNrm = (double)C*I/2.0;
   //fprintf(stderr,"dAUROC:%.0f dFcNrm:%.0f C:%d I:%d TP:%d FP:%d TN:%d FN:%d\n",dAUROC,dFcNrm,C,I,TP,FP,TN,FN);
-  if (C&&I) fprintf(stdout,"        AROC = %.9f\n", dAUROC);
+  if (C&&I) fprintf(stdout,"        AROC = %.9f\n", dAUROC/(C*I));
   /*if (C&&I) fprintf(stdout,"        AROC = %.9f\n", dAUROC/dFcNrm;*/
   /*if (C&&I) fprintf(stdout,"        AROC = %.9f\n", dAUROC/dFcNrm - 1.0);*/
   else fprintf(stdout,"        AROC = undef\n");
