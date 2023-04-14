@@ -738,7 +738,7 @@ int main (int argc, char ** argv) {
   ht *htWrds = NULL, *htLns = NULL;
   if (wdfile) htWrds = readWrdList(wdfile);
   else if (numL) {
-    fprintf(stderr,"WARNING: Number of lines (-l) has been set up without option -w\n");
+    fprintf(stderr,"WARNING: Number of lines (-l) has been set up without option -w. Ignoring it !\n");
     numL=0;
   }
 
